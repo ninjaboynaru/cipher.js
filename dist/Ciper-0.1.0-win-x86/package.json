@@ -1,0 +1,1 @@
+{"name":"Ciper","version":"0.1.0","description":"Cipher is a proof of concept and practice cryptography application, running off the Node Webkit runtime and utilizing streams for io transformation.","main":"public/html/index.html","chromium-args":"--mixed-context","window":{"max_width":410,"max_height":440,"min_width":360,"min_height":340},"dependencies":{"vue":"^2.5.13"}}

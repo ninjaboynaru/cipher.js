@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ciper</title>
+	<link rel='stylesheet' href='../css/style.css'>
+</head>
+<body>
+	<main id='main'>
+		<header class='header'>
+			<div class='header__content-left'>
+				<p class='logo-text'>Cipher</p>
+			</div>
+			<nav class='header__content-right nav'>
+				<button v-on:click='setSection("HOME")' class='nav__btn'>Home</button>
+				<button v-on:click='setSection("ABOUT")' class='nav__btn'>About</button>
+			</div>
+		</header>
+
+		<template v-if='section === "HOME"'>
+			<template v-if='state === "INITIAL"'>
+				<form v-on:submit='onFilesSubmit'>
+					<p class='input-label'>Source file</p>
+					<input class='input-file' type='file' name='fileInput'>
+
+					<p class='input-label'>Output file</p>
+					<input class='input-file' type='file' nwsaveas name='fileOutput'>
+
+					<button class='btn btn--main' type='submit'>Cipher</button>
+				</form>
+			</template>
+
+			<template v-else-if='state === "PROCESSING"'>
+				<p>
+					Processing <br>
+					Please wait...
+				</p>
+			</template>
+
+			<template v-else-if='state === "DONE"'>
+				<h3>Cipher finished</h3>
+				<button class='btn btn--main' v-on:click='setState("INITIAL")'>Return</button>
+			</template>
+
+		</template>
+		<template v-else-if='section === "ABOUT"'>
+			<p>
+				Cipher is a proof of concept and practice cryptography application. Cipher currently uses simple XOR encryption to cipher and decipher and input file. No distinction is made between ciphered and uncyphered files, thus feeding in a ciphered file as the input, will decipher it.
+				<br><br>
+				Cipher runs off the Node Webkit (nwjs) runtime, allowing the program to be written in JavaScript, HTML, and CSS, while using all the power of Node Modules. <br>
+				Streams are used for IO in order to allow proper handling of large files.
+
+			</p>
+		</template>
+
+		<p class='error-text'>
+			<template v-if='error'>An error has occurred<br>The cypher may not have completed or the output may be corrupted</template>
+			<template v-else-if='message'>{{message}}</template>
+		</p>
+	</main>
+</body>
+<script src='../js/main.js'></script>
+</html>

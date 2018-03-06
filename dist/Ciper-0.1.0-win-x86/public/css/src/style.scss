@@ -1,0 +1,137 @@
+/*
+* VARIABLES
+*/
+$font-size-root: 16px;
+$color-primary: #48b0ef;
+$color-background: #262626;
+$color-text: #f2fcf4;
+
+/*
+* PARTIALS
+*/
+.clearfix {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/*
+* BASE
+*/
+html, body {
+	width:100%;
+	margin:0;
+}
+html {
+	font-size:$font-size-root;
+	height:100%;
+}
+body {
+	min-height:100%;
+	font-family: sans-serif;
+	color: $color-text;
+	background-color: $color-background;
+}
+
+p {
+	line-height:1.5;
+}
+
+main {
+	padding:0 12px;
+	padding-top:12px;
+}
+
+* {
+	box-sizing:border-box;
+}
+
+/*
+* LAYOUT
+*/
+.header {
+	display:flex;
+	justify-content:space-between;
+	align-items: center;
+	width: 100%;
+	min-height: 60px;
+	max-height:120px;
+
+	&__content-left {
+
+	}
+	&__content-right {
+
+	}
+}
+
+.nav {
+	display:flex;
+	justify-content:space-around;
+
+	&__btn {
+		margin:4px 6px !important;
+		@extend .btn;
+		@extend .btn--main;
+	}
+}
+
+/*
+* MODULE
+*/
+.logo-text {
+	margin-top:0;
+	margin-bottom:0;
+	font-size:1.6rem;
+	font-weight:bold;
+
+}
+
+.input-label{
+	margin-bottom:4px;
+	font-weight:bold;
+}
+.input-file {
+	display:block;
+	margin-bottom:12px;
+	padding:8px;
+	border:2px solid $color-primary;
+	border-radius:6px;
+}
+
+.btn {
+	border:none;
+	padding: 4px 12px;
+	border-radius:6px;
+	color: $color-background;
+	background-color: $color-primary;
+
+	&--main {
+		font-size:1.4rem;
+		margin:12px 0;
+		padding: 4px 22px;
+	}
+}
+
+.error-text {
+	animation: error-pulse 1s linear 0s infinite;
+
+	@keyframes error-pulse {
+		$offset-x: 0px;
+		$offset-y: 0px;
+		$blur: 24px;
+		$color: red;
+
+		0% {
+			text-shadow:none;
+		}
+		50% {
+			text-shadow:$offset-x $offset-y $blur $color;
+		}
+		100% {
+			text-shadow:none;
+		}
+
+	}
+
+}

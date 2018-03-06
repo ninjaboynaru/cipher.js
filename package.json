@@ -1,0 +1,46 @@
+{
+	"name": "Ciper",
+	"version": "0.1.0",
+	"description": "Cipher is a proof of concept and practice cryptography application, running off the Node Webkit runtime and utilizing streams for io transformation.",
+	"main": "public/html/index.html",
+	"chromium-args": "--mixed-context",
+	"window": {
+		"max_width": 410,
+		"max_height": 440,
+		"min_width": 360,
+		"min_height": 340
+	},
+	"build": {
+		"nwVersion": "stable",
+		"nwFlavor": "normal",
+		"output": "./dist",
+		"files": [
+			"./public/**/*",
+			"./node_modules/**/*",
+			"./sample/**/*",
+			"package.json",
+			"package.lock.json"
+		]
+	},
+	"scripts": {
+		"install-production": "npm install nw --nwjs_build_type=normal",
+		"install-development": "npm install nw --nwjs_build_type=sdk",
+		"test": "mocha ./tests --recursive --reporter spec --exit",
+		"start": "nw ./",
+		"build": "build --tasks win-x86 --mirror https://dl.nwjs.io/ .",
+		"watch-css": "node-sass ./public/css/src/style.scss ./public/css/style.css --watch --recursive --output-style compressed",
+		"build-css": "node-sass ./public/css/src/style.scss ./public/css/style.css --recursive --output-style compressed"
+	},
+	"devDependencies": {
+		"chai": "^4.1.2",
+		"mocha": "^5.0.1",
+		"mock-fs": "^4.4.2",
+		"node-sass": "^4.7.2",
+		"nw": "^0.28.3",
+		"nw-dev": "^3.0.1",
+		"nwjs-builder-phoenix": "^1.14.6"
+	},
+	"dependencies": {
+		"vue": "^2.5.13"
+	}
+}
