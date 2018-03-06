@@ -16,7 +16,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 
 ### After ()
-![after image](screenshots/cipher-3.JPG)
+![after image](screenshots/cipher-3.jpg)
 
 ### Prod vs Dev install NOTE
 The *install-production* and *install-development* npm scripts are for installing the newjs binary to run local development. They do NOT specify what version of nwjs to use for building for distribution
